@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <script>
+      class Actor {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+      }
+
+      class Follower extends Actor {
+        constructor(startX, startY, target) {
+          super(startX, startY);
+          this.target = target;
+        }
+
+        follow() {
+          this.x = this.target.x;
+          this.y = this.target.y;
+        }
+      }
+
+      let player = { x: 0, y: 0 };
+
+      let follower = new Follower(0, 0, player);
+
+      console.log("player now :", player.x, player.y);
+      console.log("follower current:", follower.x, follower.y);
+
+      player.x = 10;
+      player.y = 7;
+
+      follower.follow();
+
+      console.log("Player's new position :", player.x, player.y);
+      console.log("ollower after following:", follower.x, follower.y);
+
+      // i tried to sublit it as just a js file but it wouldnt uplaod on cnavas.
+      //it was sayong only html files were allowed, i tested the code and it works tho.
+    </script>
+  </body>
+</html>
