@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Word of the day</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Shawn's word of the day</h1>
+
+    <div>
+      <div id="word">Loading....</div>
+      <div id="part"></div>
+      <div id="Defination">.</div>
+    </div>
+
+    <script>
+      fetch("/wordRequest")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("word").textContent = data.word;
+          document.getElementById("part").textContent = data.part;
+          document.getElementById("Defination").textContent = data.Defination;
+        });
+    </script>
+  </body>
+</html>
